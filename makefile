@@ -1,25 +1,26 @@
 # Makefile for compiling the UDP server code
 
-# Compiler
+#compiler
 CC = gcc
 
-# Compiler flags
-# CFLAGS = -Wall -L/usr/lib/x86_64-linux-gnu/ -lz
-CFLAGS = -Wall -lz
+#flags and options
+CFLAGS = -Wall
+LFLAGS = -L/usr/lib/x86_64-linux-gnu/
+LIBS   = -lz
 
-# Source file
+#source file
 SERVER_SOURCE = Cerver.c
 
-# Output executable
+#output executable
 SERVER_EXECUTABLE = Cerver.exe
 
-# Default target (compiles the server)
+#default target
 all: $(SERVER_EXECUTABLE)
 
-# Compile the server
+#compile
 $(SERVER_EXECUTABLE): $(SERVER_SOURCE)
-	$(CC) $(CFLAGS) -o $(SERVER_EXECUTABLE) $(SERVER_SOURCE)
+	$(CC) $(CFLAGS) $(LFLAGS) -o $(SERVER_EXECUTABLE) $(SERVER_SOURCE) $(LIBS)
 
-# Clean up generated files
+#clean up generated files
 clean:
 	rm -f $(SERVER_EXECUTABLE)

@@ -19,7 +19,7 @@ typedef struct __attribute__((__packed__)) {
     char        repeats[3];
     char        payload_size[8];
     char        zero;
-    uint32_t    crc
+    uint32_t    crc;
 } msg_header_t;
 
 
