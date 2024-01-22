@@ -1,9 +1,9 @@
-# Cerver-Plient
-for testing Aurix TC4xx
+#Cerver-Plient
+Teststand for testing remote HW using client-server setup
 
-* README.md   - current file
-* makefile    - make recipes
-* messages.h  - interface to the real code
-* Cerver.h    - nothing special
-* Cerver.c    - DUT server code
-* Plient.py   - testers interface
+Description is in upper folder
+
+Independent Interface Communication: 2IC aka "too icy"
+MCU-UART-GW-BLE-GW-BLE-GW-BLE-GW-LoRa-GW-UDP-PC
+
+Service providers - any host, any service.

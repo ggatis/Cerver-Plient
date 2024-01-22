@@ -12,22 +12,26 @@ client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 while True:
     message = input("Enter a message to send to the server (or 'EXIT' to quit): ")
 
-    if ( ( 1024 - 5 ) < len( message ) ):
+    if ( ( 1024 - 4 ) < len( message ) ):
         print("Invalid message size!")
         continue
 
     #calculate CRC-32 and ensure it's a 32-bit unsigned integer
     crc32_value = binascii.crc32( message.encode('utf-8') ) & 0xFFFFFFFF
+    print(f" CRC32 value: {hex( crc32_value ).upper()}")
+
     #convert the CRC-32 value to a four-byte string
     crc32_bytes = struct.pack( ">I", crc32_value )
-    print(f"crc32_bytes: {crc32_bytes}")
 
     # Send data to the server
-    client_socket.sendto( ( message + '\x00' ).encode('utf-8') + crc32_bytes, ( SERVER_IP, SERVER_PORT ) )
+    client_socket.sendto( message.encode('utf-8') + crc32_bytes, ( SERVER_IP, SERVER_PORT ) )
 
     # Receive a response from the server
-    data, server_address = client_socket.recvfrom(1024)
-    print(f"Received from server: {len( data )}, {data.decode('utf-8')}")
+    data, server_address = client_socket.recvfrom( 1024 )
+    nbytes = len( data )
+
+    print(f"Received from server: {nbytes}, ", end="")
+    print( data[:nbytes-4].decode('utf-8') )
 
     if message == 'EXIT':
         break

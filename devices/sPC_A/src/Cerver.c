@@ -9,7 +9,6 @@
 
 
 #define PORT 12345
-#define MAX_BUFFER_SIZE 1024
 
 
 static const char   sexit[] = "EXIT";
@@ -35,26 +34,27 @@ void send_time( struct timeval* start_time, struct timeval* finnish_time ) {
 }
 
 
-int validate_command( char* buffer ) {
+int validate_command( char* buffer, size_t size ) {
     uint32_t CRC, rCRC;
-    unsigned len = strlen( buffer );
+    
+    unsigned len = size - SIZE_OF_UINT32;
 
-    if ( ( MAX_BUFFER_SIZE - 5 ) < len ) {
+    if ( ( SIZE_OF_BUFFER - SIZE_OF_UINT32 ) < len ) {
         return -1;  //no place for CRC
     }
 
     //const char *data = "Hello, CRC!";
     CRC = crc32( 0L, (const Bytef*)buffer, (uInt)len );
 
-    printf("CRC-32 value: 0x%08X\n", CRC );
+    printf("cCRC32 value: 0x%08X\n", CRC );
 
-    memcpy( &rCRC, buffer + len + 1, sizeof( rCRC ) );
+    memcpy( &rCRC, buffer + len, sizeof( rCRC ) );
     //ensure proper byte order (if needed)
     rCRC = be32toh( rCRC );
 
     printf("rCRC32 value: 0x%08X\n", rCRC );
 
-    return ( CRC == rCRC ) ? 0 : -2;
+    return ( CRC == rCRC ) ? 0 : -2;	//invalid incoming CRC
 
 }
 
@@ -69,13 +69,13 @@ int main() {
     int sockfd;
     struct sockaddr_in serverAddr, clientAddr;
     socklen_t addr_len = sizeof( clientAddr );
-    char buffer[MAX_BUFFER_SIZE];
+    char buffer[SIZE_OF_BUFFER];
 
     // Create a UDP socket
     sockfd = socket(AF_INET, SOCK_DGRAM, 0);
-    if (sockfd < 0) {
+    if ( sockfd < 0 ) {
         perror("Error in socket");
-        exit(1);
+        exit( 1 );
     }
 
     // Configure server address
@@ -84,26 +84,31 @@ int main() {
     serverAddr.sin_addr.s_addr = INADDR_ANY;
 
     // Bind the socket to the server address
-    if ( bind( sockfd, (struct sockaddr *)&serverAddr, sizeof(serverAddr) ) < 0 ) {
+    if ( bind( sockfd, (struct sockaddr *)&serverAddr, sizeof( serverAddr ) ) < 0 ) {
         perror("Error in binding");
-        exit(1);
+        exit( 1 );
     }
 
-    printf("UDP server is listening on port %d...\n", PORT);
+    printf("UDP server is listening on port %d...\n", PORT );
 
     while ( 1 ) {
 
-        memset( buffer, 0, MAX_BUFFER_SIZE );
+        memset( buffer, 0, SIZE_OF_BUFFER );
 
         // Receive data from the client
-        int bytesReceived = recvfrom( sockfd, buffer, MAX_BUFFER_SIZE, 0, (struct sockaddr *)&clientAddr, &addr_len );
+        int bytesReceived = recvfrom( sockfd, buffer, SIZE_OF_BUFFER, 0, (struct sockaddr *)&clientAddr, &addr_len );
 
         if ( bytesReceived < 0 ) {
             perror("Error in recvfrom");
             exit( 1 );
         }
 
-        printf("Received from client: %d, %s\r\n", bytesReceived, buffer );
+        //printf("Received from client: %d, %s\r\n", bytesReceived, buffer );
+        printf("Received from client: %d, ", bytesReceived );
+	for ( int i = 0; i < ( bytesReceived - SIZE_OF_UINT32 ); i++ ) {
+		printf("%c",  buffer[i] );
+	}
+        printf("\r\n");
 
         // You can process the received data here
 
@@ -111,10 +116,10 @@ int main() {
         //sendto( sockfd, "Message received", strlen("Message received"), 0, (struct sockaddr *)&clientAddr, addr_len);
         sendto( sockfd, buffer, bytesReceived, 0, (struct sockaddr *)&clientAddr, addr_len);
 
-        if ( validate_command( buffer ) ) continue;
+        if ( validate_command( buffer, bytesReceived ) ) continue;
 
         int fexit = 1;
-        for ( int i = 0; i < strlen( (const char*)&sexit ) ; i++ ) {
+        for ( int i = 0; i < strlen( (const char*)&sexit ); i++ ) {
             if ( sexit[i] != buffer[i] ) {
                 fexit = 0;
                 break;
