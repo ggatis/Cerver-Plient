@@ -9,13 +9,14 @@ CFLAGS   = -Wall
 LFLAGS   = -L/usr/lib/x86_64-linux-gnu/
 
 MAIN     = Cerver
-INCLUDES = -Iinc -I../../common/inc
+INCLUDES = -Iinc -I../common/inc -I../../common/inc
 LIBS     = -lz
 
 MSOURCE      = src/$(MAIN).c
-SOURCES      = $(MSOURCE) ../../common/src/*.c
+SOURCES      = $(MSOURCE) ../common/src/unpackers.c ../common/src/woodpeckers.c
 OUTPUTS      = bin
 TARGET       = $(OUTPUTS)/$(MAIN).exe
+#DEPENDENCIES = $(SOURCES) inc/$(MAIN).h -I../common/inc/*.h ../../common/inc/messages_A.h
 DEPENDENCIES = $(SOURCES) inc/$(MAIN).h ../../common/inc/messages_A.h
 
 #default target

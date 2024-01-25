@@ -6,44 +6,44 @@
 #include <arpa/inet.h>
 #include <zlib.h>                   //include the zlib library for crc32
 #include <sys/time.h>               //include the <sys/time.h> header for gettimeofday()
-#include "Cerver.h"
+#include "server.h"
 
 
-#define PORT 12347
+//default port
+//#define PORT 12345
 
 
-//static const char   sexit[] = "EXIT";
-char buffer[SIZE_OF_BUFFER];
+char                buffer[SIZE_OF_BUFFER];
 
-struct timeval  start_time,
-                finnish_time;
+struct timeval      start_time,
+                    finnish_time;
 
-int             comm_error    = 0;
-int             bytesReceived = 0;
-int             bytesToSend   = 0;
-uint32_t        transaction   = 0;
-uint8_t         done          = 0;
-uint8_t         msg_topic     = 0;
-uint32_t        msg_crc       = 0;
-uint16_t        main_arg_index;
-uint32_t        main_chunk_index;
-uint8_t*        Incoming      = NULL;
-uint8_t*        inc_data      = NULL;
-size_t          dataindex;
-size_t          msg_total_payload_size;
+int                 comm_error    = 0;
+int                 bytesReceived = 0;
+int                 bytesToSend   = 0;
+uint32_t            transaction   = 0;
+uint8_t             done          = 0;
+uint8_t             msg_topic     = 0;
+uint32_t            msg_crc       = 0;
+uint16_t            main_arg_index;
+uint32_t            main_chunk_index;
+uint8_t*            Incoming      = NULL;
+uint8_t*            inc_data      = NULL;
+size_t              dataindex;
+size_t              msg_total_payload_size;
 
 //1st kind of messages. msg_crc is hanging!
 msg_topic_init_t*   pmsg_header;
 //2nd kind of messages. msg_crc is hanging! what if the size is not exactly the size to fit
-msg_topic_data_t*     pmsg_data;
+msg_topic_data_t*   pmsg_data;
 //3rd kind of messages. msg_crc is hanging!
-msg_topic_done_t*     pmsg_done;
+msg_topic_done_t*   pmsg_done;
 //1st kind of messages. msg_crc is hanging!
 msg_topic_init_t    rl_header;
 //2nd kind of messages. msg_crc is hanging! what if the size is not exactly the size to fit
-msg_topic_data_t      rl_data;
+msg_topic_data_t    rl_data;
 //3rd kind of messages. msg_crc is hanging!
-msg_topic_done_t      rl_done;
+msg_topic_done_t    rl_done;
 
 
 //functional part
@@ -321,189 +321,211 @@ void send_results( uint8_t result ) {
     }
 }
 
+/*************************************************************
+**                      INTERFACE                           **
+*************************************************************/
 
-int main() {
-    int sockfd;
-    struct sockaddr_in serverAddr, clientAddr;
-    socklen_t addr_len = sizeof( clientAddr );
+void server_error_print( int err_code ) {
+    printf( "Server error: %d!", err_code );
+}
+
+
+int                 sockfd;
+struct sockaddr_in  serverAddr, clientAddr;
+socklen_t           addr_len;
+
+
+int server_init( uint16_t port ) {
+
+    addr_len = sizeof( clientAddr );
 
     //Create an UDP socket
-    sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+    sockfd = socket( AF_INET, SOCK_DGRAM, 0 );
     if ( sockfd < 0 ) {
         perror("Error in socket");
-        exit( 1 );
+        return 1;
     }
 
     //Configure server address
-    serverAddr.sin_family = AF_INET;
-    serverAddr.sin_port = htons( PORT );
-    serverAddr.sin_addr.s_addr = INADDR_ANY;
+    serverAddr.sin_family       = AF_INET;
+    serverAddr.sin_port         = htons( port );
+    serverAddr.sin_addr.s_addr  = INADDR_ANY;
 
     //Bind the socket to the server address
     if ( bind( sockfd, (struct sockaddr *)&serverAddr, sizeof( serverAddr ) ) < 0 ) {
         perror("Error in binding");
-        exit( 1 );
+        return 2;
     }
 
-    printf("UDP server is listening on port %d...\n", PORT );
+    printf("UDP server is listening on port %d...\n", port );
 
-    while ( 1 ) {
+    return 0;
+}
 
-        //memset( buffer, 0, SIZE_OF_BUFFER );  //?
 
-        //pielikt noildzi gadiijumaa, ja pieprasa datus no klienta
-        bytesReceived = recvfrom( sockfd, buffer, SIZE_OF_BUFFER, 0, (struct sockaddr *)&clientAddr, &addr_len );
+//int server_init( void ) {
+//  return server_init( PORT );
+//}
 
-        if ( bytesReceived < 0 ) {
-            perror("Error in recvfrom");
-            exit( 1 );
-        }
-        //printf("Received from client: %d, %s\r\n", bytesReceived, buffer );
-        printf("Received: %d", bytesReceived );
-        for ( int i = 0; i < ( bytesReceived - SIZE_OF_UINT32 ); i++ ) {
-            if ( 0 == ( i % 4 ) ) printf(" ");
-            if ( 0 == ( i % 32 ) ) printf("\r\n");
-            printf("%02X", (uint8_t)buffer[i] );
-        }
-        printf("\r\n");
 
-        //WTH?
-        if ( ( comm_error = validate_command( buffer, bytesReceived ) ) ) {
-            //something weird
-            printf("validate_command: %d\r\n", comm_error );
-            continue;
-        }
-
-        //analyse this!
-        //iestatiit buffer un bytesReceived
-        switch ( msg_topic ) {
-        case TOPIC_INIT:
-            printf("main TOPIC_INIT\r\n");
-            done = 0;
-
-            if ( preallocate_Dspace( msg_total_payload_size ) ) {
-                dataindex = 0;
-                main_arg_index = 0;
-                main_chunk_index = 0;
-                make_data_request();
-            } else {
-                //nav vietas - nosuutiit sorry
-                bytesToSend = 0;
-            }
-            
-            break;
-
-        case TOPIC_DATA:
-            printf("main TOPIC_DATA\r\n");
-            //printf("msg_topic:              %d\r\n", rl_data.msg_topic );
-            //printf("msg_response:           %d\r\n", rl_data.response );
-            //printf("current_payload_size:   %d\r\n", rl_data.current_payload_size );
-            //printf("origin_crc:             %08X\r\n", rl_data.origin_crc );
-            //printf("arg_index:              %d\r\n", rl_data.arg_index );
-            //printf("chunk_index:            %d\r\n", rl_data.chunk_index );
-            //printf("msg_crc:                %08X\r\n", msg_crc );
-            //printf("inc_data:               %p\r\n", (void*)inc_data );
-
-            if ( done ) {
-                //ienaakosho infu uzskata par ticamu - ko prasa, to suuta prom
-                make_data_transmission();
-            } else {
-                //vai tas ir tas, kas prasiits
-                if ( ( main_arg_index == rl_data.arg_index ) || ( main_chunk_index == rl_data.chunk_index ) ) {
-                    //savaakt datus, advanceeties
-                    //nolikt datus
-                    //printf("rl_data.current_payload_size: %d\r\n", rl_data.current_payload_size );
-                    //sizeof( msg_crc ) nav payloadaa
-                    for ( uint16_t i = 0;
-                        i < ( rl_data.current_payload_size - sizeof( msg_topic_data_t ) ); )
-                        Incoming[dataindex++] = inc_data[i++];
-
-                    if ( rl_data.response ) {
-                        //peedeejais gabals tekoshajam argumentam - ir veel argumenti?
-                        ++main_arg_index;
-                        if ( main_arg_index < rl_header.payload_parm_cnt ) {
-                            //next pls
-                            main_chunk_index = 0;
-                            make_data_request();
-                        } else {
-                            //dati sanjemti: izpakot, uzzinaat lielumum, izdaliit un palaist
-                            //typedef int (*unpacker_func_t)( uint8_t* buffer, size_t size ); //jaatgriezh 0, ja OK
-                            //extern const unpacker_func_t      unpackers[PROCEDURE_COUNT];       //in unpackers.c
-                        
-                            //printf("Incoming: %lu\r\n", (long unsigned int)dataindex );
-                            //for ( int i = 0; i < dataindex; i++ ) {
-                            //    if ( 0 == ( i % 4 ) ) printf(" ");
-                            //    if ( 0 == ( i % 32 ) ) printf("\r\n");
-                            //    printf("%02X", Incoming[i] );
-                            //}
-                            //printf("\r\n");
-                            //int result = unpackers[rl_header.msg_kind]( &Incoming[0],
-
-                            int result = unpackers[rl_header.msg_kind]( &Incoming[0],
-                            rl_header.total_payload_size );
-                            if ( result ) {
-                                //nebuus - noformeet sorry paku un palaist atpakalj
-                                printf("Data unpacking problem: %d\r\n", result );
-                                make_error_response( ERR_UNPACK, result );
-                                bytesToSend = 0;
-                            } else {
-                                //analizeet atbildi
-                                if ( preallocate_Cspace( TEST_MATRIX_rows * TEST_MATRIX_columnsC * sizeof( int32_t ) ) ) {
-
-                                    gettimeofday( &start_time, NULL );
-                                    for ( unsigned u = 0; u < rl_header.repeats; u++ ) {
-                                        //typedef int (*woodpecker_func_t)( void );                       //jaatgriezh 0, ja OK
-                                        //extern const woodpecker_func_t    woodpeckers[PROCEDURE_COUNT];     //in woodpeckers.c
-                                        result = woodpeckers[rl_header.msg_kind]();
-                                        if ( result ) {
-                                            //nebuus - noformeet sorry paku un palaist atpakalj
-                                            break;
-                                        }
-
-                                    }
-                                    gettimeofday( &finnish_time, NULL );
-                                    done = result ? 0 : 255;
-                                    send_results( result ); //noformeet INIT paku un paarsleegties uz DONE
-                                    printf("bytesToSend: %d\r\n", bytesToSend );
-    
-                                } else {
-                                    //nebuus - noformeet sorry paku un palaist atpakalj
-                                    bytesToSend = 0;
-                                }
-                            }
-                        }
-                    } else {
-                        ++main_chunk_index;
-                        make_data_request();
-                    }
-                
-                } else {
-                    make_data_request();
-                }
-            }
-
-            break;
-
-        case TOPIC_DONE:    //data transfer done
-            printf("TOPIC_DONE\r\n");
-            break;
-
-        case TOPIC_BUSY:    //server is busy processing data, a lot of log info: freeram, temp, voltages, frequencies
-            printf("TOPIC_BUSY\r\n");
-            break;
-
-        default:
-            printf("Complete invalid option\r\n");
-            break;
-        }
-
-        if ( bytesToSend )
-            sendto( sockfd, buffer, bytesToSend, 0, (struct sockaddr *)&clientAddr, addr_len );
-
-    }
-
+int server_del( void ) {
     deallocate_space();
     close( sockfd );
+    return 0;
+}
+
+
+int server_loop( void ) {
+    //memset( buffer, 0, SIZE_OF_BUFFER );  //?
+
+    //pielikt noildzi gadiijumaa, ja pieprasa datus no klienta
+    bytesReceived = recvfrom( sockfd, buffer, SIZE_OF_BUFFER, 0, (struct sockaddr *)&clientAddr, &addr_len );
+
+    if ( bytesReceived < 0 ) {
+        perror("Error in recvfrom");
+        return 1;
+    }
+    //printf("Received from client: %d, %s\r\n", bytesReceived, buffer );
+    printf("Received: %d", bytesReceived );
+    for ( int i = 0; i < ( bytesReceived - SIZE_OF_UINT32 ); i++ ) {
+        if ( 0 == ( i % 4 ) ) printf(" ");
+        if ( 0 == ( i % 32 ) ) printf("\r\n");
+        printf("%02X", (uint8_t)buffer[i] );
+    }
+    printf("\r\n");
+
+    //WTH?
+    if ( ( comm_error = validate_command( buffer, bytesReceived ) ) ) {
+        //something weird
+        printf("validate_command: %d\r\n", comm_error );
+        return 2;
+    }
+
+    //analyse this!
+    //iestatiit buffer un bytesReceived
+    switch ( msg_topic ) {
+    case TOPIC_INIT:
+        printf("main TOPIC_INIT\r\n");
+        done = 0;
+
+        if ( preallocate_Dspace( msg_total_payload_size ) ) {
+            dataindex = 0;
+            main_arg_index = 0;
+            main_chunk_index = 0;
+            make_data_request();
+        } else {
+            //nav vietas - nosuutiit sorry
+            bytesToSend = 0;
+        }
+        
+        break;
+
+    case TOPIC_DATA:
+        printf("main TOPIC_DATA\r\n");
+        //printf("msg_topic:              %d\r\n", rl_data.msg_topic );
+        //printf("msg_response:           %d\r\n", rl_data.response );
+        //printf("current_payload_size:   %d\r\n", rl_data.current_payload_size );
+        //printf("origin_crc:             %08X\r\n", rl_data.origin_crc );
+        //printf("arg_index:              %d\r\n", rl_data.arg_index );
+        //printf("chunk_index:            %d\r\n", rl_data.chunk_index );
+        //printf("msg_crc:                %08X\r\n", msg_crc );
+        //printf("inc_data:               %p\r\n", (void*)inc_data );
+
+        if ( done ) {
+            //ienaakosho infu uzskata par ticamu - ko prasa, to suuta prom
+            make_data_transmission();
+        } else {
+            //vai tas ir tas, kas prasiits
+            if ( ( main_arg_index == rl_data.arg_index ) || ( main_chunk_index == rl_data.chunk_index ) ) {
+                //savaakt datus, advanceeties
+                //nolikt datus
+                //printf("rl_data.current_payload_size: %d\r\n", rl_data.current_payload_size );
+                //sizeof( msg_crc ) nav payloadaa
+                for ( uint16_t i = 0;
+                    i < ( rl_data.current_payload_size - sizeof( msg_topic_data_t ) ); )
+                    Incoming[dataindex++] = inc_data[i++];
+
+                if ( rl_data.response ) {
+                    //peedeejais gabals tekoshajam argumentam - ir veel argumenti?
+                    ++main_arg_index;
+                    if ( main_arg_index < rl_header.payload_parm_cnt ) {
+                        //next pls
+                        main_chunk_index = 0;
+                        make_data_request();
+                    } else {
+                        //dati sanjemti: izpakot, uzzinaat lielumum, izdaliit un palaist
+                        //typedef int (*unpacker_func_t)( uint8_t* buffer, size_t size ); //jaatgriezh 0, ja OK
+                        //extern const unpacker_func_t      unpackers[PROCEDURE_COUNT];       //in unpackers.c
+                    
+                        //printf("Incoming: %lu\r\n", (long unsigned int)dataindex );
+                        //for ( int i = 0; i < dataindex; i++ ) {
+                        //    if ( 0 == ( i % 4 ) ) printf(" ");
+                        //    if ( 0 == ( i % 32 ) ) printf("\r\n");
+                        //    printf("%02X", Incoming[i] );
+                        //}
+                        //printf("\r\n");
+                        //int result = unpackers[rl_header.msg_kind]( &Incoming[0],
+
+                        int result = unpackers[rl_header.msg_kind]( &Incoming[0],
+                        rl_header.total_payload_size );
+                        if ( result ) {
+                            //nebuus - noformeet sorry paku un palaist atpakalj
+                            printf("Data unpacking problem: %d\r\n", result );
+                            make_error_response( ERR_UNPACK, result );
+                            bytesToSend = 0;
+                        } else {
+                            //analizeet atbildi
+                            if ( preallocate_Cspace( TEST_MATRIX_rows * TEST_MATRIX_columnsC * sizeof( int32_t ) ) ) {
+
+                                gettimeofday( &start_time, NULL );
+                                for ( unsigned u = 0; u < rl_header.repeats; u++ ) {
+                                    //typedef int (*woodpecker_func_t)( void );                       //jaatgriezh 0, ja OK
+                                    //extern const woodpecker_func_t    woodpeckers[PROCEDURE_COUNT];     //in woodpeckers.c
+                                    result = woodpeckers[rl_header.msg_kind]();
+                                    if ( result ) {
+                                        //nebuus - noformeet sorry paku un palaist atpakalj
+                                        break;
+                                    }
+
+                                }
+                                gettimeofday( &finnish_time, NULL );
+                                done = result ? 0 : 255;
+                                send_results( result ); //noformeet INIT paku un paarsleegties uz DONE
+                                printf("bytesToSend: %d\r\n", bytesToSend );
+
+                            } else {
+                                //nebuus - noformeet sorry paku un palaist atpakalj
+                                bytesToSend = 0;
+                            }
+                        }
+                    }
+                } else {
+                    ++main_chunk_index;
+                    make_data_request();
+                }
+            
+            } else {
+                make_data_request();
+            }
+        }
+
+        break;
+
+    case TOPIC_DONE:    //data transfer done
+        printf("TOPIC_DONE\r\n");
+        break;
+
+    case TOPIC_BUSY:    //server is busy processing data, a lot of log info: freeram, temp, voltages, frequencies
+        printf("TOPIC_BUSY\r\n");
+        break;
+
+    default:
+        printf("Complete invalid option\r\n");
+        break;
+    }
+
+    if ( bytesToSend )
+        sendto( sockfd, buffer, bytesToSend, 0, (struct sockaddr *)&clientAddr, addr_len );
 
     return 0;
 

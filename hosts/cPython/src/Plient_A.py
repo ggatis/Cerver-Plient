@@ -1,4 +1,22 @@
 #!/usr/bin/env python3
+#v0.00
+"""
+Module: Plient_A.py
+Author: Gatis Gaigals, EDI
+Date:   06.12.2023.
+
+Description:
+First experiment in data exchange.
+
+Usage:
+Please, do no use this. Used to work with the very first version of the server.
+
+Example:
+-
+
+Notes:
+-
+"""
 import socket
 import binascii
 import struct

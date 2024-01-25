@@ -4,7 +4,7 @@ SHELL    = /bin/bash
 #compiler
 CC = pyinstaller
 
-MAIN	     = Plient_A2
+MAIN         = Plient_A3
 MSOURCE      = src/$(MAIN).py
 SOURCES      = $(MSOURCE)
 OUTPUTS      = ./bin
@@ -22,9 +22,9 @@ all: $(TARGET)
 #compile
 $(TARGET): $(DEPENDENCIES)
 	if [ -e $(MSOURCE) ]; then \
-	    echo Building "$(TARGET)"; \
-	    mkdir $(OUTPUTS); \
-	    $(CC) $(SOURCES) $(CFLAGS) -n $(MAIN).exe; \
+		echo Building "$(TARGET)"; \
+		mkdir $(OUTPUTS); \
+		$(CC) $(SOURCES) $(CFLAGS) -n $(MAIN).exe; \
 	fi; \
 
 #clean up generated files
