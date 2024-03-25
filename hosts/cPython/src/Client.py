@@ -419,11 +419,28 @@ class Client:
         -3      incorrect chunk index
         -254    transmission aborted by host
         """
-        self.compose_topic_init( Data )
-        self.client_socket.sendto( self.message, ( self.ip_address, self.server_port ) )
+        phase = 0
+        self.client_socket.settimeout( 1 )
 
+        self.compose_topic_init( Data )
+
+        print(f"self.client_socket.sendto {self.ip_address}:{self.server_port}")
         while True:
-            server_reply, server_address = self.client_socket.recvfrom( SIZE_OF_BUFFER )
+            if 0 == phase:
+                self.client_socket.sendto( self.message, ( self.ip_address, self.server_port ) )
+                try:
+                    server_reply, server_address = self.client_socket.recvfrom( SIZE_OF_BUFFER )
+                except socket.timeout:
+                    print("No answer from server!")
+                    continue
+
+                self.client_socket.settimeout( None )
+                phase = 1
+
+            else:
+            
+                print("self.client_socket.recvfrom")
+                server_reply, server_address = self.client_socket.recvfrom( SIZE_OF_BUFFER )
         
             #sets also global msg_xxx
             check_result = self.validate_packet( server_reply )
@@ -571,7 +588,8 @@ class Client:
 
 if __name__ == "__main__":
     print("This is the main program")
-    Client = Client( '127.0.0.1', 12346 )
+    Client = Client( '169.254.11.200', 15000 )
+
     print( Client )
 
     #wait for a server
