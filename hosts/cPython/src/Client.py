@@ -223,7 +223,7 @@ class Client:
         self.msg_total_payload_size = 0
         for i in range( self.msg_payload_parm_cnt ):
             self.msg_total_payload_size += len( all_data[i] )
-        print("msg_total_payload_size:", self.msg_total_payload_size )
+        print("msg_total_payload_size(data size):", self.msg_total_payload_size )
     
         self.message = \
             struct.pack( 'B', self.msg_topic ) + \
@@ -233,10 +233,14 @@ class Client:
             struct.pack( 'N', self.msg_total_payload_size )   #'>'?
     
         self.msg_crc = binascii.crc32( self.message ) & 0xFFFFFFFF
-        print(f" CRC32 value: {hex( self.msg_crc ).upper()}")
+        #print(f" CRC32 value: {hex( self.msg_crc ).upper()}")
 
         self.transaction = self.msg_crc
         self.message += struct.pack( "<I", self.msg_crc )
+
+        print(f"TOPIC_INIT message[{len(self.message)}]: ", self.message )
+        print( binascii.hexlify( self.message ) )
+        print(f" CRC32 value: {hex( self.msg_crc ).upper()}\r\n")
 
 
     def compose_topic_data( self, chunk ):
@@ -263,7 +267,9 @@ class Client:
 
         self.msg_crc = binascii.crc32( self.message ) & 0xFFFFFFFF
         self.message += struct.pack( "<I", self.msg_crc )
-        print("TX message: ", self.message )
+
+        print("TOPIC_DATA message: ", self.message )
+        print( binascii.hexlify( self.message ) )
         print(f" CRC32 value: {hex( self.msg_crc ).upper()}\r\n")
 
 
@@ -423,6 +429,7 @@ class Client:
         self.client_socket.settimeout( 1 )
 
         self.compose_topic_init( Data )
+
 
         print(f"self.client_socket.sendto {self.ip_address}:{self.server_port}")
         while True:
@@ -607,7 +614,9 @@ if __name__ == "__main__":
     iterations = 1000
     A  = np.array( np.mat('1 2; 3 4; 5 6'), dtype = '<i4')
     B  = np.array( np.mat('7 8; 9 4; 5 6'), dtype = '<i4')
+    #local result
     Cl = A + B
+    #remote result
     Cr = Client.execute( TEST_MATRIX_SUM_CPU, A, B, iterations )
     if ( Client.com_error ):
         print(f"Communication error: {Client.com_error}")
