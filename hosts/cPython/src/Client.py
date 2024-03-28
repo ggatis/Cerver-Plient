@@ -238,9 +238,9 @@ class Client:
         self.transaction = self.msg_crc
         self.message += struct.pack( "<I", self.msg_crc )
 
-        print(f"TOPIC_INIT message[{len(self.message)}]: ", self.message )
+        print(f"TX TOPIC_INIT message[{len(self.message)}]: ", self.message )
         print( binascii.hexlify( self.message ) )
-        print(f" CRC32 value: {hex( self.msg_crc ).upper()}\r\n")
+        print(f"TX CRC32 value: {hex( self.msg_crc ).upper()}\r\n")
 
 
     def compose_topic_data( self, chunk ):
@@ -268,9 +268,9 @@ class Client:
         self.msg_crc = binascii.crc32( self.message ) & 0xFFFFFFFF
         self.message += struct.pack( "<I", self.msg_crc )
 
-        print("TOPIC_DATA message: ", self.message )
+        print("TX TOPIC_DATA message: ", self.message )
         print( binascii.hexlify( self.message ) )
-        print(f" CRC32 value: {hex( self.msg_crc ).upper()}\r\n")
+        print(f"TX CRC32 value: {hex( self.msg_crc ).upper()}\r\n")
 
 
     def validate_packet( self, reply ):
