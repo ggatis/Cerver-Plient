@@ -2,6 +2,7 @@ This is the main program
 Remote function call client attached to 169.254.11.200:15000
 Are you ready to continue? ('YES' or 'NO'): YES
 You are ready to continue. Let's go!
+
 msg_total_payload_size(data size): 56
 TX TOPIC_INIT message[19]:  b'\x00\x00\xe8\x03\x00\x00\x048\x00\x00\x00\x00\x00\x00\x00\xf7\xe4\x13_'
 b'0000e8030000043800000000000000f7e4135f'
@@ -11,54 +12,7 @@ self.client_socket.sendto 169.254.11.200:15000
 No answer from server!
 No answer from server!
 No answer from server!
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00C\x03t\x1e'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            0
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X1E740343
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\xaas\xec\x8e'
-b'01011200f7e4135f00000000000003000000aa73ec8e'
-TX CRC32 value: 0X8EEC73AA
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00C\x03t\x1e'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            0
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X1E740343
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\xaas\xec\x8e'
-b'01011200f7e4135f00000000000003000000aa73ec8e'
-TX CRC32 value: 0X8EEC73AA
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00C\x03t\x1e'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            0
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X1E740343
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\xaas\xec\x8e'
-b'01011200f7e4135f00000000000003000000aa73ec8e'
-TX CRC32 value: 0X8EEC73AA
-
-self.client_socket.recvfrom
+No answer from server!
 RX size: 18
 RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00C\x03t\x1e'
 RX msg_topic:  1
@@ -131,24 +85,24 @@ msg_response:             0
 msg_current_payload_size: 18
 msg_origin_crc:           0X5F13E4F7
 msg_arg_index:            1
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0XD528D0E6
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\x02\x00\x00\x00\xf1\x7f\x92\xd9'
-b'01011200f7e4135f01000000000002000000f17f92d9'
-TX CRC32 value: 0XD9927FF1
+msg_chunk_index:          0                                                                       
+msg_data len:             0                                                                  
+msg_crc:                  0XD528D0E6                                                              
+TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\x02\x00\x00\x00\xf1\x7f\x92\xd9'                                                                                    
+b'01011200f7e4135f01000000000002000000f17f92d9'                                                   
+TX CRC32 value: 0XD9927FF1                                                                                                                                                                          
 
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00H\xa2\xbcS'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            2
-msg_chunk_index:          0
-msg_data len:             0
+self.client_socket.recvfrom                                                                       
+RX size: 18                                                                                       
+RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00H\xa2\xbcS'                           
+RX msg_topic:  1                                                                                  
+msg_topic:                1                                                                       
+msg_response:             0                                                                       
+msg_current_payload_size: 18                                                                      
+msg_origin_crc:           0X5F13E4F7                                                              
+msg_arg_index:            2                                                                       
+msg_chunk_index:          0                                                                       
+msg_data len:             0                                                                       
 msg_crc:                  0X53BCA248                                                              
 TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00:27\xb0'                
 b'01012600f7e4135f0200000000000100000002000000030000000400000005000000060000003a3237b0'           
@@ -169,21 +123,5 @@ msg_crc:                  0X98E071ED
 TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'            
 b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'           
 TX CRC32 value: 0X9FCC9970                                                                                                                                                                          
-
-self.client_socket.recvfrom                                                                       
-RX size: 18                                                                                       
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'                        
-RX msg_topic:  1                                                                                  
-msg_topic:                1                                                                       
-msg_response:             0                                                                       
-msg_current_payload_size: 18                                                                      
-msg_origin_crc:           0X5F13E4F7                                                              
-msg_arg_index:            3                                                                       
-msg_chunk_index:          0                                                                       
-msg_data len:             0                                                                       
-msg_crc:                  0X98E071ED                                                              
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'            
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'           
-TX CRC32 value: 0X9FCC9970
 
 self.client_socket.recvfrom
