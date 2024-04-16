@@ -439,11 +439,21 @@ class Client:
         while True:
             if timeout_activated:
                 self.client_socket.sendto( self.message, ( self.ip_address, self.server_port ) )
-                try:
-                    server_reply, server_address = self.client_socket.recvfrom( SIZE_OF_BUFFER )
-                except socket.timeout:
-                    print("No answer from server!")
-                    continue    #with timeout
+                #try:
+                #    server_reply, server_address = self.client_socket.recvfrom( SIZE_OF_BUFFER )
+                #except socket.timeout:
+                #    print("No answer from server!")
+                #    continue    #with timeout
+                server_reply = b''
+                while True:
+                    try:
+                        server_reply, server_address = self.udp_socket.recvfrom( SIZE_OF_BUFFER )
+                    except socket.timeout:
+                        if ( len( server_reply ) ):
+                            break
+                        else:
+                            print("No answer from server!")
+                            continue    #with timeout
 
             else:
             
