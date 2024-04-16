@@ -290,7 +290,7 @@ class Client:
 
         size_of_reply = len( reply )
         print( f"RX size: { size_of_reply }")
-        print("RX: ", reply )
+        print("RX:", reply )
     
         #self.msg_topic = struct.unpack('B', reply[0] )[0]
         self.msg_topic = reply[0]
@@ -439,27 +439,26 @@ class Client:
         while True:
             if timeout_activated:
                 self.client_socket.sendto( self.message, ( self.ip_address, self.server_port ) )
-                #try:
-                #    server_reply, server_address = self.client_socket.recvfrom( SIZE_OF_BUFFER )
-                #except socket.timeout:
-                #    print("No answer from server!")
-                #    continue    #with timeout
-                server_reply = b''
-                while True:
-                    try:
-                        server_reply, server_address = self.udp_socket.recvfrom( SIZE_OF_BUFFER )
-                    except socket.timeout:
-                        if ( len( server_reply ) ):
-                            break
-                        else:
-                            print("No answer from server!")
-                            continue    #with timeout
+                try:
+                    server_reply, server_address = self.client_socket.recvfrom( SIZE_OF_BUFFER )
+                except socket.timeout:
+                    print("No answer from server!")
+                    continue    #with timeout
 
             else:
             
                 print("self.client_socket.recvfrom")
                 server_reply, server_address = self.client_socket.recvfrom( SIZE_OF_BUFFER )
-        
+                #server_reply = b''
+                #fl_flush = True
+                #while fl_flush:
+                #    try:
+                #        data, server_address = self.client_socket.recvfrom( SIZE_OF_BUFFER )
+                #        if data:
+                #            server_reply = data
+                #    except socket.timeout:
+                #        fl_flush = False
+
             #sets also global msg_xxx
             check_result = self.validate_packet( server_reply )
             if ( check_result ):
@@ -640,9 +639,9 @@ if __name__ == "__main__":
     print("ready to continue. Let's go!")
 
     #2.Real stuff
-    iterations = 1000
-    A  = np.array( np.mat('1 2; 3 4; 5 6'), dtype = '<i4')
-    B  = np.array( np.mat('7 8; 9 4; 5 6'), dtype = '<i4')
+    iterations = 100000
+    A  = np.array( np.mat('1 2 3; 3 4 5; 5 6 7'), dtype = '<i4')
+    B  = np.array( np.mat('7 8 9; 9 4 3; 7 5 6'), dtype = '<i4')
     #local result
     Cl = A + B
     #remote result

@@ -2,736 +2,488 @@ This is the main program
 Remote function call client attached to 169.254.11.200:15000
 Are you ready to continue? ('YES' or 'NO'): YES
 You are ready to continue. Let's go!
-msg_total_payload_size(data size): 56
-TX TOPIC_INIT message[19]:  b'\x00\x00\xe8\x03\x00\x00\x048\x00\x00\x00\x00\x00\x00\x00\xf7\xe4\x13_'
-b'0000e8030000043800000000000000f7e4135f'
-TX CRC32 value: 0X5F13E4F7
+msg_total_payload_size(data size): 80
+TX TOPIC_INIT message[19]:  b"\x00\x00\x10'\x00\x00\x04P\x00\x00\x00\x00\x00\x00\x00\x805\xb7\x07"
+b'0000102700000450000000000000008035b707'
+TX CRC32 value: 0X7B73580
 
 self.client_socket.sendto 169.254.11.200:15000
 No answer from server!
 No answer from server!
+No answer from server!
+No answer from server!
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00C\x03t\x1e'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x00\x00\x00\x00\x00\x00~\x86\xa07'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            0
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X1E740343
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\xaas\xec\x8e'
-b'01011200f7e4135f00000000000003000000aa73ec8e'
-TX CRC32 value: 0X8EEC73AA
+msg_crc:                  0X37A0867E
+TX TOPIC_DATA message:  b'\x01\x01\x12\x00\x805\xb7\x07\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\xca\x12\xb5\xcc'
+b'010112008035b70700000000000003000000ca12b5cc'
+TX CRC32 value: 0XCCB512CA
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00C\x03t\x1e'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x00\x00\x00\x00\x00\x00~\x86\xa07'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            0
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X1E740343
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\xaas\xec\x8e'
-b'01011200f7e4135f00000000000003000000aa73ec8e'
-TX CRC32 value: 0X8EEC73AA
+msg_crc:                  0X37A0867E
+TX TOPIC_DATA message:  b'\x01\x01\x12\x00\x805\xb7\x07\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\xca\x12\xb5\xcc'
+b'010112008035b70700000000000003000000ca12b5cc'
+TX CRC32 value: 0XCCB512CA
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00C\x03t\x1e'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x00\x00\x00\x00\x00\x00~\x86\xa07'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            0
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X1E740343
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\xaas\xec\x8e'
-b'01011200f7e4135f00000000000003000000aa73ec8e'
-TX CRC32 value: 0X8EEC73AA
+msg_crc:                  0X37A0867E
+TX TOPIC_DATA message:  b'\x01\x01\x12\x00\x805\xb7\x07\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\xca\x12\xb5\xcc'
+b'010112008035b70700000000000003000000ca12b5cc'
+TX CRC32 value: 0XCCB512CA
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00C\x03t\x1e'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x00\x00\x00\x00\x00\x00~\x86\xa07'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            0
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X1E740343
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\xaas\xec\x8e'
-b'01011200f7e4135f00000000000003000000aa73ec8e'
-TX CRC32 value: 0X8EEC73AA
+msg_crc:                  0X37A0867E
+TX TOPIC_DATA message:  b'\x01\x01\x12\x00\x805\xb7\x07\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\xca\x12\xb5\xcc'
+b'010112008035b70700000000000003000000ca12b5cc'
+TX CRC32 value: 0XCCB512CA
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00C\x03t\x1e'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x00\x00\x00\x00\x00\x00~\x86\xa07'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            0
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X1E740343
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\xaas\xec\x8e'
-b'01011200f7e4135f00000000000003000000aa73ec8e'
-TX CRC32 value: 0X8EEC73AA
+msg_crc:                  0X37A0867E
+TX TOPIC_DATA message:  b'\x01\x01\x12\x00\x805\xb7\x07\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\xca\x12\xb5\xcc'
+b'010112008035b70700000000000003000000ca12b5cc'
+TX CRC32 value: 0XCCB512CA
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00C\x03t\x1e'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x00\x00\x00\x00\x00\x00~\x86\xa07'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            0
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X1E740343
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\xaas\xec\x8e'
-b'01011200f7e4135f00000000000003000000aa73ec8e'
-TX CRC32 value: 0X8EEC73AA
+msg_crc:                  0X37A0867E
+TX TOPIC_DATA message:  b'\x01\x01\x12\x00\x805\xb7\x07\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\xca\x12\xb5\xcc'
+b'010112008035b70700000000000003000000ca12b5cc'
+TX CRC32 value: 0XCCB512CA
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00C\x03t\x1e'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x01\x00\x00\x00\x00\x00\xdbU\xfc\xfc'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            0
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X1E740343
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\xaas\xec\x8e'
-b'01011200f7e4135f00000000000003000000aa73ec8e'
-TX CRC32 value: 0X8EEC73AA
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\xe6\xd0(\xd5'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            1
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0XD528D0E6
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\x02\x00\x00\x00\xf1\x7f\x92\xd9'
-b'01011200f7e4135f01000000000002000000f17f92d9'
-TX CRC32 value: 0XD9927FF1
+msg_crc:                  0XFCFC55DB
+TX TOPIC_DATA message:  b'\x01\x01\x12\x00\x805\xb7\x07\x01\x00\x00\x00\x00\x00\x03\x00\x00\x00\xf4yw#'
+b'010112008035b70701000000000003000000f4797723'
+TX CRC32 value: 0X237779F4
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\xe6\xd0(\xd5'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x01\x00\x00\x00\x00\x00\xdbU\xfc\xfc'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            1
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0XD528D0E6
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\x02\x00\x00\x00\xf1\x7f\x92\xd9'
-b'01011200f7e4135f01000000000002000000f17f92d9'
-TX CRC32 value: 0XD9927FF1
+msg_crc:                  0XFCFC55DB
+TX TOPIC_DATA message:  b'\x01\x01\x12\x00\x805\xb7\x07\x01\x00\x00\x00\x00\x00\x03\x00\x00\x00\xf4yw#'
+b'010112008035b70701000000000003000000f4797723'
+TX CRC32 value: 0X237779F4
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\xe6\xd0(\xd5'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x01\x00\x00\x00\x00\x00\xdbU\xfc\xfc'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            1
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0XD528D0E6
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\x02\x00\x00\x00\xf1\x7f\x92\xd9'
-b'01011200f7e4135f01000000000002000000f17f92d9'
-TX CRC32 value: 0XD9927FF1
+msg_crc:                  0XFCFC55DB
+TX TOPIC_DATA message:  b'\x01\x01\x12\x00\x805\xb7\x07\x01\x00\x00\x00\x00\x00\x03\x00\x00\x00\xf4yw#'
+b'010112008035b70701000000000003000000f4797723'
+TX CRC32 value: 0X237779F4
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\xe6\xd0(\xd5'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x01\x00\x00\x00\x00\x00\xdbU\xfc\xfc'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            1
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0XD528D0E6
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\x02\x00\x00\x00\xf1\x7f\x92\xd9'
-b'01011200f7e4135f01000000000002000000f17f92d9'
-TX CRC32 value: 0XD9927FF1
+msg_crc:                  0XFCFC55DB
+TX TOPIC_DATA message:  b'\x01\x01\x12\x00\x805\xb7\x07\x01\x00\x00\x00\x00\x00\x03\x00\x00\x00\xf4yw#'
+b'010112008035b70701000000000003000000f4797723'
+TX CRC32 value: 0X237779F4
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\xe6\xd0(\xd5'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x01\x00\x00\x00\x00\x00\xdbU\xfc\xfc'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            1
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0XD528D0E6
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\x02\x00\x00\x00\xf1\x7f\x92\xd9'
-b'01011200f7e4135f01000000000002000000f17f92d9'
-TX CRC32 value: 0XD9927FF1
+msg_crc:                  0XFCFC55DB
+TX TOPIC_DATA message:  b'\x01\x01\x12\x00\x805\xb7\x07\x01\x00\x00\x00\x00\x00\x03\x00\x00\x00\xf4yw#'
+b'010112008035b70701000000000003000000f4797723'
+TX CRC32 value: 0X237779F4
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\xe6\xd0(\xd5'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x01\x00\x00\x00\x00\x00\xdbU\xfc\xfc'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            1
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0XD528D0E6
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\x02\x00\x00\x00\xf1\x7f\x92\xd9'
-b'01011200f7e4135f01000000000002000000f17f92d9'
-TX CRC32 value: 0XD9927FF1
+msg_crc:                  0XFCFC55DB
+TX TOPIC_DATA message:  b'\x01\x01\x12\x00\x805\xb7\x07\x01\x00\x00\x00\x00\x00\x03\x00\x00\x00\xf4yw#'
+b'010112008035b70701000000000003000000f4797723'
+TX CRC32 value: 0X237779F4
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\xe6\xd0(\xd5'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x01\x00\x00\x00\x00\x00\xdbU\xfc\xfc'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            1
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0XD528D0E6
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\x02\x00\x00\x00\xf1\x7f\x92\xd9'
-b'01011200f7e4135f01000000000002000000f17f92d9'
-TX CRC32 value: 0XD9927FF1
+msg_crc:                  0XFCFC55DB
+TX TOPIC_DATA message:  b'\x01\x01\x12\x00\x805\xb7\x07\x01\x00\x00\x00\x00\x00\x03\x00\x00\x00\xf4yw#'
+b'010112008035b70701000000000003000000f4797723'
+TX CRC32 value: 0X237779F4
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\xe6\xd0(\xd5'
+RX:  b"\x01\x00\x12\x00\x805\xb7\x07\x02\x00\x00\x00\x00\x00u'hz"
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            1
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0XD528D0E6
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\x02\x00\x00\x00\xf1\x7f\x92\xd9'
-b'01011200f7e4135f01000000000002000000f17f92d9'
-TX CRC32 value: 0XD9927FF1
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\xe6\xd0(\xd5'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            1
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0XD528D0E6
-TX TOPIC_DATA message:  b'\x01\x01\x12\x00\xf7\xe4\x13_\x01\x00\x00\x00\x00\x00\x02\x00\x00\x00\xf1\x7f\x92\xd9'
-b'01011200f7e4135f01000000000002000000f17f92d9'
-TX CRC32 value: 0XD9927FF1
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00H\xa2\xbcS'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            2
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X53BCA248
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00:27\xb0'
-b'01012600f7e4135f0200000000000100000002000000030000000400000005000000060000003a3237b0'
-TX CRC32 value: 0XB037323A
+msg_crc:                  0X7A682775
+TX TOPIC_DATA message:  b'\x01\x012\x00\x805\xb7\x07\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00\x07\x00\x00\x00\r.0\x87'
+b'010132008035b7070200000000000100000002000000030000000300000004000000050000000500000006000000070000000d2e3087'
+TX CRC32 value: 0X87302E0D
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00H\xa2\xbcS'
+RX:  b"\x01\x00\x12\x00\x805\xb7\x07\x02\x00\x00\x00\x00\x00u'hz"
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            2
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X53BCA248
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00:27\xb0'
-b'01012600f7e4135f0200000000000100000002000000030000000400000005000000060000003a3237b0'
-TX CRC32 value: 0XB037323A
+msg_crc:                  0X7A682775
+TX TOPIC_DATA message:  b'\x01\x012\x00\x805\xb7\x07\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00\x07\x00\x00\x00\r.0\x87'
+b'010132008035b7070200000000000100000002000000030000000300000004000000050000000500000006000000070000000d2e3087'
+TX CRC32 value: 0X87302E0D
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00H\xa2\xbcS'
+RX:  b"\x01\x00\x12\x00\x805\xb7\x07\x02\x00\x00\x00\x00\x00u'hz"
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            2
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X53BCA248
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00:27\xb0'
-b'01012600f7e4135f0200000000000100000002000000030000000400000005000000060000003a3237b0'
-TX CRC32 value: 0XB037323A
+msg_crc:                  0X7A682775
+TX TOPIC_DATA message:  b'\x01\x012\x00\x805\xb7\x07\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00\x07\x00\x00\x00\r.0\x87'
+b'010132008035b7070200000000000100000002000000030000000300000004000000050000000500000006000000070000000d2e3087'
+TX CRC32 value: 0X87302E0D
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00H\xa2\xbcS'
+RX:  b"\x01\x00\x12\x00\x805\xb7\x07\x02\x00\x00\x00\x00\x00u'hz"
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            2
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X53BCA248
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00:27\xb0'
-b'01012600f7e4135f0200000000000100000002000000030000000400000005000000060000003a3237b0'
-TX CRC32 value: 0XB037323A
+msg_crc:                  0X7A682775
+TX TOPIC_DATA message:  b'\x01\x012\x00\x805\xb7\x07\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00\x07\x00\x00\x00\r.0\x87'
+b'010132008035b7070200000000000100000002000000030000000300000004000000050000000500000006000000070000000d2e3087'
+TX CRC32 value: 0X87302E0D
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00H\xa2\xbcS'
+RX:  b"\x01\x00\x12\x00\x805\xb7\x07\x02\x00\x00\x00\x00\x00u'hz"
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            2
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X53BCA248
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00:27\xb0'
-b'01012600f7e4135f0200000000000100000002000000030000000400000005000000060000003a3237b0'
-TX CRC32 value: 0XB037323A
+msg_crc:                  0X7A682775
+TX TOPIC_DATA message:  b'\x01\x012\x00\x805\xb7\x07\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00\x07\x00\x00\x00\r.0\x87'
+b'010132008035b7070200000000000100000002000000030000000300000004000000050000000500000006000000070000000d2e3087'
+TX CRC32 value: 0X87302E0D
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00H\xa2\xbcS'
+RX:  b"\x01\x00\x12\x00\x805\xb7\x07\x02\x00\x00\x00\x00\x00u'hz"
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            2
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X53BCA248
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00:27\xb0'
-b'01012600f7e4135f0200000000000100000002000000030000000400000005000000060000003a3237b0'
-TX CRC32 value: 0XB037323A
+msg_crc:                  0X7A682775
+TX TOPIC_DATA message:  b'\x01\x012\x00\x805\xb7\x07\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00\x07\x00\x00\x00\r.0\x87'
+b'010132008035b7070200000000000100000002000000030000000300000004000000050000000500000006000000070000000d2e3087'
+TX CRC32 value: 0X87302E0D
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00H\xa2\xbcS'
+RX:  b"\x01\x00\x12\x00\x805\xb7\x07\x02\x00\x00\x00\x00\x00u'hz"
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            2
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X53BCA248
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00:27\xb0'
-b'01012600f7e4135f0200000000000100000002000000030000000400000005000000060000003a3237b0'
-TX CRC32 value: 0XB037323A
+msg_crc:                  0X7A682775
+TX TOPIC_DATA message:  b'\x01\x012\x00\x805\xb7\x07\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00\x07\x00\x00\x00\r.0\x87'
+b'010132008035b7070200000000000100000002000000030000000300000004000000050000000500000006000000070000000d2e3087'
+TX CRC32 value: 0X87302E0D
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00H\xa2\xbcS'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x03\x00\x00\x00\x00\x00\xd0\xf44\xb1'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            2
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X53BCA248
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00:27\xb0'
-b'01012600f7e4135f0200000000000100000002000000030000000400000005000000060000003a3237b0'
-TX CRC32 value: 0XB037323A
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00H\xa2\xbcS'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            2
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X53BCA248
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00:27\xb0'
-b'01012600f7e4135f0200000000000100000002000000030000000400000005000000060000003a3237b0'
-TX CRC32 value: 0XB037323A
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00H\xa2\xbcS'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            2
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X53BCA248
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00:27\xb0'
-b'01012600f7e4135f0200000000000100000002000000030000000400000005000000060000003a3237b0'
-TX CRC32 value: 0XB037323A
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00H\xa2\xbcS'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            2
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X53BCA248
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00:27\xb0'
-b'01012600f7e4135f0200000000000100000002000000030000000400000005000000060000003a3237b0'
-TX CRC32 value: 0XB037323A
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00H\xa2\xbcS'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            2
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X53BCA248
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00:27\xb0'
-b'01012600f7e4135f0200000000000100000002000000030000000400000005000000060000003a3237b0'
-TX CRC32 value: 0XB037323A
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00H\xa2\xbcS'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            2
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X53BCA248
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x02\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00:27\xb0'
-b'01012600f7e4135f0200000000000100000002000000030000000400000005000000060000003a3237b0'
-TX CRC32 value: 0XB037323A
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            3
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X98E071ED
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'
-TX CRC32 value: 0X9FCC9970
+msg_crc:                  0XB134F4D0
+TX TOPIC_DATA message:  b'\x01\x012\x00\x805\xb7\x07\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x03\x00\x00\x00\x07\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00\xc0\x11s\xb8'
+b'010132008035b707030000000000070000000800000009000000090000000400000003000000070000000500000006000000c01173b8'
+TX CRC32 value: 0XB87311C0
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x03\x00\x00\x00\x00\x00\xd0\xf44\xb1'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            3
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X98E071ED
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'
-TX CRC32 value: 0X9FCC9970
+msg_crc:                  0XB134F4D0
+TX TOPIC_DATA message:  b'\x01\x012\x00\x805\xb7\x07\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x03\x00\x00\x00\x07\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00\xc0\x11s\xb8'
+b'010132008035b707030000000000070000000800000009000000090000000400000003000000070000000500000006000000c01173b8'
+TX CRC32 value: 0XB87311C0
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x03\x00\x00\x00\x00\x00\xd0\xf44\xb1'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            3
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X98E071ED
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'
-TX CRC32 value: 0X9FCC9970
+msg_crc:                  0XB134F4D0
+TX TOPIC_DATA message:  b'\x01\x012\x00\x805\xb7\x07\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x03\x00\x00\x00\x07\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00\xc0\x11s\xb8'
+b'010132008035b707030000000000070000000800000009000000090000000400000003000000070000000500000006000000c01173b8'
+TX CRC32 value: 0XB87311C0
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x03\x00\x00\x00\x00\x00\xd0\xf44\xb1'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            3
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X98E071ED
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'
-TX CRC32 value: 0X9FCC9970
+msg_crc:                  0XB134F4D0
+TX TOPIC_DATA message:  b'\x01\x012\x00\x805\xb7\x07\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x03\x00\x00\x00\x07\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00\xc0\x11s\xb8'
+b'010132008035b707030000000000070000000800000009000000090000000400000003000000070000000500000006000000c01173b8'
+TX CRC32 value: 0XB87311C0
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x03\x00\x00\x00\x00\x00\xd0\xf44\xb1'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            3
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X98E071ED
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'
-TX CRC32 value: 0X9FCC9970
+msg_crc:                  0XB134F4D0
+TX TOPIC_DATA message:  b'\x01\x012\x00\x805\xb7\x07\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x03\x00\x00\x00\x07\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00\xc0\x11s\xb8'
+b'010132008035b707030000000000070000000800000009000000090000000400000003000000070000000500000006000000c01173b8'
+TX CRC32 value: 0XB87311C0
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x03\x00\x00\x00\x00\x00\xd0\xf44\xb1'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            3
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X98E071ED
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'
-TX CRC32 value: 0X9FCC9970
+msg_crc:                  0XB134F4D0
+TX TOPIC_DATA message:  b'\x01\x012\x00\x805\xb7\x07\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x03\x00\x00\x00\x07\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00\xc0\x11s\xb8'
+b'010132008035b707030000000000070000000800000009000000090000000400000003000000070000000500000006000000c01173b8'
+TX CRC32 value: 0XB87311C0
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x03\x00\x00\x00\x00\x00\xd0\xf44\xb1'
 RX msg_topic:  1
 msg_topic:                1
 msg_response:             0
 msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
+msg_origin_crc:           0X7B73580
 msg_arg_index:            3
 msg_chunk_index:          0
 msg_data len:             0
-msg_crc:                  0X98E071ED
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'
-TX CRC32 value: 0X9FCC9970
+msg_crc:                  0XB134F4D0
+TX TOPIC_DATA message:  b'\x01\x012\x00\x805\xb7\x07\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x03\x00\x00\x00\x07\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00\xc0\x11s\xb8'
+b'010132008035b707030000000000070000000800000009000000090000000400000003000000070000000500000006000000c01173b8'
+TX CRC32 value: 0XB87311C0
 
 self.client_socket.recvfrom
 RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'
+RX:  b'\x01\x00\x12\x00\x805\xb7\x07\x03\x00\x00\x00\x00\x00\xd0\xf44\xb1'
 RX msg_topic:  1
 msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            3
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X98E071ED
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'
-TX CRC32 value: 0X9FCC9970
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            3
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X98E071ED
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'
-TX CRC32 value: 0X9FCC9970
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            3
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X98E071ED
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'
-TX CRC32 value: 0X9FCC9970
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            3
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X98E071ED
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'
-TX CRC32 value: 0X9FCC9970
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            3
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X98E071ED
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'
-TX CRC32 value: 0X9FCC9970
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            3
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X98E071ED
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'
-TX CRC32 value: 0X9FCC9970
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            3
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X98E071ED
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'
-TX CRC32 value: 0X9FCC9970
-
-self.client_socket.recvfrom
-RX size: 18
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'
-RX msg_topic:  1
-msg_topic:                1
-msg_response:             0
-msg_current_payload_size: 18
-msg_origin_crc:           0X5F13E4F7
-msg_arg_index:            3
-msg_chunk_index:          0
-msg_data len:             0
-msg_crc:                  0X98E071ED
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'           
-TX CRC32 value: 0X9FCC9970                                                                                                                                                                          
-
-self.client_socket.recvfrom                                                                       
-RX size: 18                                                                                       
-RX:  b'\x01\x00\x12\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\xedq\xe0\x98'                        
-RX msg_topic:  1                                                                                  
-msg_topic:                1                                                                       
 msg_response:             0                                                                       
-msg_current_payload_size: 18                                                                      
-msg_origin_crc:           0X5F13E4F7                                                              
+msg_current_payload_size: 18                                                                 
+msg_origin_crc:           0X7B73580                                                               
 msg_arg_index:            3                                                                       
 msg_chunk_index:          0                                                                       
 msg_data len:             0                                                                       
-msg_crc:                  0X98E071ED                                                              
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'            
-b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'           
-TX CRC32 value: 0X9FCC9970                                                                                                                                                                          
+msg_crc:                  0XB134F4D0                                                              
+TX TOPIC_DATA message:  b'\x01\x012\x00\x805\xb7\x07\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x03\x00\x00\x00\x07\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00\xc0\x11s\xb8'                                                                
+b'010132008035b707030000000000070000000800000009000000090000000400000003000000070000000500000006000000c01173b8'                                                                                     
+TX CRC32 value: 0XB87311C0
 
 self.client_socket.recvfrom                                                                       
-RX size: 21                                                                                       
-RX:  b'\x02\xe8\x03\x00\x00\x00\x00\x00\x00\x18\x00\x00\x00\xf7\xe4\x13_4\x85>\x9a'               
+RX size: 25                                                                                       
+RX:  b"\x02\x10'\x00\x00\x00\x00\x00\x00$\x00\x00\x00\x00\x00\x00\x00\x805\xb7\x07\x97N\x92\xc8"  
 RX msg_topic:  2                                                                                  
-ERR in transmit                                                                                   
-Communication error: -45
+msg_topic:                2                                                                       
+time_us:                  10000                                                                   
+msg_total_payload_size:   36                                                                      
+msg_origin_crc:           0X7B73580                                                               
+msg_crc:                  0XC8924E97                                                              
+TOPIC_DONE arrived!                                                                               
+TX TOPIC_DATA message:  b'\x01\x00\x0e\x00\x805\xb7\x07\x00\x00\x00\x00\x00\x00\x03&\xb2>'        
+b'01000e008035b7070000000000000326b23e'                                                           
+TX CRC32 value: 0X3EB22603                                                                                                                                                                          
+
+RX size: 54                                                                                       
+RX:  b'\x01\x016\x00\x805\xb7\x07\x00\x00\x00\x00\x00\x00\x08\x00\x00\x00\n\x00\x00\x00\x0c\x00\x00\x00\x0c\x00\x00\x00\x08\x00\x00\x00\x08\x00\x00\x00\x0c\x00\x00\x00\x0b\x00\x00\x00\r\x00\x00\x00\xebc\xef\xb7'                                                                                   
+RX msg_topic:  1                                                                                  
+msg_topic:                1                                                                       
+msg_response:             1                                                                       
+msg_current_payload_size: 54                                                                      
+msg_origin_crc:           0X7B73580                                                               
+msg_arg_index:            0                                                                       
+msg_chunk_index:          0                                                                       
+msg_data len:             36                                                                      
+msg_crc:                  0XB7EF63EB                                                              
+byte_buffer:  bytearray(b'\x08\x00\x00\x00\n\x00\x00\x00\x0c\x00\x00\x00\x0c\x00\x00\x00\x08\x00\x00\x00\x08\x00\x00\x00\x0c\x00\x00\x00\x0b\x00\x00\x00\r\x00\x00\x00')                            
+Local and remote results are equal.                                                               
+Done in 10000 us; 1.0 us per iteration
