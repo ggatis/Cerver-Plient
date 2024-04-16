@@ -273,10 +273,6 @@ class Client:
         print(f"TX CRC32 value: {hex( self.msg_crc ).upper()}\r\n")
 
 
-    def compose_topic_done( self ):
-        pass
-
-
     def validate_packet( self, reply ):
         """
         Decomposes incoming message into fields checking the internals.
@@ -429,7 +425,7 @@ class Client:
         -3      incorrect chunk index
         -254    transmission aborted by host
         """
-        timeout_activated = True
+        phase = 0
         self.client_socket.settimeout( 1 )
 
         self.compose_topic_init( Data )
@@ -437,13 +433,16 @@ class Client:
 
         print(f"self.client_socket.sendto {self.ip_address}:{self.server_port}")
         while True:
-            if timeout_activated:
+            if 0 == phase:
                 self.client_socket.sendto( self.message, ( self.ip_address, self.server_port ) )
                 try:
                     server_reply, server_address = self.client_socket.recvfrom( SIZE_OF_BUFFER )
                 except socket.timeout:
                     print("No answer from server!")
-                    continue    #with timeout
+                    continue
+
+                self.client_socket.settimeout( None )
+                phase = 1
 
             else:
             
@@ -456,10 +455,6 @@ class Client:
                 return check_result
     
             if ( TOPIC_DATA == self.msg_topic ):
-                #no timeout needed
-                timeout_activated = False
-                self.client_socket.settimeout( None )
-
                 #self.msg_arg_index, self.msg_chunk_index
                 arg_cnt = len( Data )
                 if ( ( arg_cnt <= self.msg_arg_index ) or ( 0 > self.msg_arg_index ) ):
@@ -518,29 +513,16 @@ class Client:
         #set globals for 1st request
         lcl_chunk_index = 0
     
-        self.msg_response = 0   #atbilde iestatiis
-        self.msg_arg_index = 0  #atbildee pagaidaam tikai 1 arguments
         while True:
             #print("msg_arg_index, arg_size: ", self.msg_arg_index, arg_size, Data[self.msg_arg_index] )
-            self.msg_chunk_index = lcl_chunk_index  #ko sagaidaam
+            self.msg_response = 0
+            self.msg_arg_index = 0
+            self.msg_chunk_index = lcl_chunk_index
     
-            if ( self.msg_response ):               #peedeejais gabals
-                #self.compose_topic_done()           #DONE message
-                #pielikt skaitiitaaju disconnect diagnostikai
-                return 0
-            else:
-                self.compose_topic_data(b'')        #data requests
-
-            self.client_socket.settimeout( 1 )      #requester activates receive timeout
-            while True:
-                self.client_socket.sendto( self.message, ( self.ip_address, self.server_port ) )
-                try:
-                    server_reply, server_address = self.client_socket.recvfrom( SIZE_OF_BUFFER )
-                    break
-                except socket.timeout:
-                    print("No answer from server!")
-                    continue    #with timeout
-            self.client_socket.settimeout( None )
+            self.compose_topic_data(b'')     #data requests
+            self.client_socket.sendto( self.message, ( self.ip_address, self.server_port ) )
+    
+            server_reply, server_address = self.client_socket.recvfrom( SIZE_OF_BUFFER )
     
             #sets also global msg_xxx
             check_result = self.validate_packet( server_reply )
@@ -565,10 +547,9 @@ class Client:
                                 size_of_chunk = self.msg_total_payload_size - offset
     
                             self._byte_buffer[offset:offset+size_of_chunk] = self.msg_data
-
-                        if ( self.msg_response ):       #peedeejais gabals
-                            #return 0
-                            pass                        #nosuutiit un gaidiit DONE
+    
+                        if ( self.msg_response ):    #peedeejais gabals
+                            return 0
                         else:
                             lcl_chunk_index += 1
     
