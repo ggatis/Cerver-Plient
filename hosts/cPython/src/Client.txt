@@ -725,7 +725,8 @@ msg_arg_index:            3
 msg_chunk_index:          0                                                                       
 msg_data len:             0                                                                       
 msg_crc:                  0X98E071ED                                                              
-TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'            b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'           
+TX TOPIC_DATA message:  b'\x01\x01&\x00\xf7\xe4\x13_\x03\x00\x00\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\t\x00\x00\x00\x04\x00\x00\x00\x05\x00\x00\x00\x06\x00\x00\x00p\x99\xcc\x9f'            
+b'01012600f7e4135f0300000000000700000008000000090000000400000005000000060000007099cc9f'           
 TX CRC32 value: 0X9FCC9970                                                                                                                                                                          
 
 self.client_socket.recvfrom                                                                       

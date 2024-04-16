@@ -370,7 +370,7 @@ class Client:
                 //    uint32_t     crc;         //crc beigaas jaahendlo
                 } msg_topic_done_t;    //0 != msg_topic and server replies
                 '''
-                self._msg_time_us                = struct.unpack_from('<Q', reply, 1 )[0]
+                self._msg_time_us               = struct.unpack_from('<Q', reply, 1 )[0]
                 self.msg_total_payload_size     = struct.unpack_from('<Q', reply, 9 )[0]
                 self.msg_origin_crc             = struct.unpack_from('<I', reply,17 )[0]
     
